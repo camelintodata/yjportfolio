@@ -416,6 +416,20 @@
     color: var(--text-dim);
   }
 
+  .case-card-link {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--green);
+    margin-top: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .case-card-link:hover {
+    color: var(--green-light);
+    text-decoration: underline;
+  }
+
   .case-card-toggle {
     display: inline-block;
     font-size: 12px;
@@ -467,6 +481,18 @@
     text-align: center;
     font-size: 12px;
     color: var(--text-dim);
+  }
+
+  .case-card-img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .case-card-img-caption {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
   }
 
   .tools-section {
@@ -808,14 +834,7 @@
         <div class="case-card-desc">
           Dashboard shows how a world tour changes streaming numbers across 49 markets. Each concert date is compared with streaming data by country, so you can see where the tour actually had an effect. Three views included: tour lift by region, release impact timeline, and geo streaming breakdown. All based on Luminate data.
         </div>
-        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
-        <div class="case-card-detail">
-          <div class="case-card-detail-inner">
-            <div class="case-card-attachment-area">
-              <div class="case-card-attachment-placeholder">Dashboard screenshots and interactive demo will be added here</div>
-            </div>
-          </div>
-        </div>
+        <a class="case-card-link" href="https://camelintodata.github.io/yjportfolio/yves.html" target="_blank">View dashboard →</a>
       </div>
 
       <!-- CASE 02 -->
@@ -831,7 +850,7 @@
             <span class="case-metric-label">sound-use videos</span>
           </span>
           <span class="case-metric">
-            <span class="case-metric-value">₩175 → ₩20K</span>
+            <span class="case-metric-value">₩2,000 → ₩175</span>
             <span class="case-metric-label">UGC cost per video</span>
           </span>
         </div>
@@ -839,7 +858,14 @@
         <div class="case-card-detail">
           <div class="case-card-detail-inner">
             <div class="case-card-attachment-area">
-              <div class="case-card-attachment-placeholder">Campaign data and results will be added here</div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_1.png" alt="AEAO TikTok Campaign Overview">
+                <div class="case-card-img-caption">Campaign performance overview</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_2.png" alt="AEAO Campaign Results Detail">
+                <div class="case-card-img-caption">Detailed campaign results</div>
+              </div>
             </div>
           </div>
         </div>
