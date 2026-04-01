@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yongjoon Kim — Portfolio | Spotify Music Editor Application</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  :root {
+    --black: #121212;
+    --dark: #181818;
+    --card: #232323;
+    --card-hover: #2a2a2a;
+    --text: #ffffff;
+    --text-sub: #b3b3b3;
+    --text-dim: #727272;
+    --green: #1DB954;
+    --green-light: #1ed760;
+    --accent: #1DB954;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans KR', -apple-system, sans-serif;
+    background: var(--black);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 50vh;
+    background: linear-gradient(180deg, #1B3A5C 0%, var(--black) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 80px 60px 50px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 840px;
+  }
+
+  .hero-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+  }
+
+  .hero-name {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--text-sub);
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hero-meta .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-block;
+  }
+
+  /* ===== MAIN CONTAINER ===== */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 60px 80px;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-top: 56px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ===== INTRO PROFILE ===== */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .profile-card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .profile-card.full {
+    grid-column: 1 / -1;
+  }
+
+  .profile-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .profile-card-value {
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .profile-card-value strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--green-light);
+    font-weight: 500;
+  }
+
+  .tag.neutral {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    color: var(--text-sub);
+  }
+
+  /* ===== DROPDOWN ARCHIVE ===== */
+  .dropdown-archive {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .dropdown-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+
+  .dropdown-header:hover {
+    background: var(--card-hover);
+  }
+
+  .dropdown-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dropdown-category {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .dropdown-count {
+    font-size: 11px;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.06);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .dropdown-arrow {
+    font-size: 12px;
+    color: var(--text-dim);
+    transition: transform 0.2s;
+  }
+
+  .dropdown-item.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown-item.open .dropdown-body {
+    max-height: 3000px;
+  }
+
+  .dropdown-list {
+    padding: 0 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dropdown-list a {
+    display: block;
+    padding: 7px 0;
+    font-size: 12px;
+    color: var(--text-sub);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.15s;
+    line-height: 1.5;
+  }
+
+  .dropdown-list a:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-list a:hover {
+    color: var(--green-light);
+  }
+
+  /* ===== EDITORIAL CARDS ===== */
+  .editorial-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .editorial-card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .editorial-card:hover {
+    background: var(--card-hover);
+  }
+
+  .editorial-card-type {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .editorial-card-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .editorial-card-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .editorial-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .editorial-card-link:hover {
+    text-decoration: underline;
+  }
+
+  .editorial-summary {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 24px 28px;
+    border: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .editorial-summary p {
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+
+  .editorial-summary a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  .editorial-summary a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== CASE STUDY CARDS ===== */
+  .case-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .case-card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 28px;
+    border: 1px solid var(--border);
+  }
+
+  .case-card-number {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .case-card-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .case-card-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .case-metric {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 14px;
+    margin-right: 20px;
+  }
+
+  .case-metric-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green-light);
+  }
+
+  .case-metric-label {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .case-card-toggle {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--green);
+    cursor: pointer;
+    margin-top: 14px;
+    user-select: none;
+    font-weight: 500;
+  }
+
+  .case-card-toggle:hover {
+    color: var(--green-light);
+  }
+
+  .case-card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .case-card.open .case-card-detail {
+    max-height: 2000px;
+  }
+
+  .case-card-detail-inner {
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-card-detail-inner p {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .case-card-attachment-area {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .case-card-attachment-placeholder {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .tools-section {
+    margin-top: 24px;
+  }
+
+  .tools-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .tools-tag {
+    display: inline-block;
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.2);
+    color: var(--green-light);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .tools-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .tbd-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== PLAYLIST SECTION ===== */
+  .playlist-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .playlist-intro {
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  .playlist-intro .tbd {
+    color: var(--text-dim);
+    font-style: italic;
+    display: block;
+    margin-top: 12px;
+  }
+
+  .playlist-embed-full {
+    width: 100%;
+    height: 352px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .playlist-embed-full iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+
+  .playlist-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    padding: 10px 24px;
+    background: var(--green);
+    color: var(--black);
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .playlist-link:hover {
+    background: var(--green-light);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .footer p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .footer a {
+    color: var(--text-sub);
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: var(--text);
+  }
+
+  /* ===== PERSPECTIVE BOX ===== */
+  .perspective-box {
+    background: linear-gradient(135deg, rgba(29,185,84,0.08) 0%, rgba(27,58,92,0.12) 100%);
+    border: 1px solid rgba(29,185,84,0.15);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .perspective-box h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+
+  .perspective-box p {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 24px 40px; }
+    .hero-name { font-size: 40px; }
+    .container { padding: 0 24px 60px; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .playlist-embed-full { height: 300px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Portfolio</div>
+    <h1 class="hero-name">Yongjoon Kim</h1>
+    <p class="hero-tagline">
+      Discovering good music is intuition. Understanding how it reaches people is data.
+      I've been trying to connect them, building a career at the intersection of data, marketing and music journalism.
+    </p>
+    <div class="hero-meta">
+      <span><span class="dot"></span> Seoul, South Korea</span>
+      <span>Kreators Network — Data & Digital Marketing</span>
+      <span>ART Insight — Contributing Editor</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="container">
+
+  <!-- ===== EDITORIAL WRITING ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Editorial Writing</h2>
+      <span class="section-subtitle">ART Insight — Contributing Editor, 2019 ~ Present</span>
+    </div>
+
+    <div class="perspective-box">
+      <h4>Editorial Perspective</h4>
+      <p>
+        Over 6 years and 120+ articles at ART Insight, I've been introducing diverse genres to readers — from bossa nova to Korean indie bands. I built my own editorial voice on a platform where music coverage was rare, and I've been meeting artists, conducting interviews, and covering events on the ground to stay close to how music culture actually moves. Full archive available at <a href="https://www.artinsight.co.kr/news/search.php?search_type=&search_date=&section=&q=%EA%B9%80%EC%9A%A9%EC%A4%80&wr_id=camel1410" target="_blank" style="color: var(--green); text-decoration: none;">ART Insight — Editor Page</a>.
+      </p>
+    </div>
+
+    <div class="editorial-grid">
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=52257" target="_blank">
+        <div class="editorial-card-type">Press Coverage</div>
+        <div class="editorial-card-title">Spotify Korea Launch — Live Media Day Coverage</div>
+        <div class="editorial-card-desc">
+          Attended Spotify's Korea launch media day as a press writer. Covered how Spotify planned to enter the Korean streaming market — localization, playlist strategy, and what it meant for how Korean listeners would find new music.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=43008" target="_blank">
+        <div class="editorial-card-type">Music Industry Column</div>
+        <div class="editorial-card-title">Have You Listened to a Playlist?</div>
+        <div class="editorial-card-desc">
+          A column about how playlists became the main way people listen to music. Looks at the shift from radio DJs to algorithm-based recommendations, and how too many choices actually changed the way we discover songs.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=56110" target="_blank">
+        <div class="editorial-card-type">Genre Editorial</div>
+        <div class="editorial-card-title">Rio's Shore at a Café — Bossa Nova</div>
+        <div class="editorial-card-desc">
+          An editorial about bossa nova — where it came from, why it still works, and what makes a genre like this connect with listeners who normally don't go beyond pop.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=57612" target="_blank">
+        <div class="editorial-card-type">Album Review — Artist Analysis</div>
+        <div class="editorial-card-title">The Unchanging Direction of a Band — Bosudong Cooler, Sand</div>
+        <div class="editorial-card-desc">
+          Bosudong Cooler's vocalist change was big news in the Korean indie scene. This review covers their first album after that shift — how their sound changed, what stayed the same, and what direction the band was heading.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=57542" target="_blank">
+        <div class="editorial-card-type">Artist Discovery — Interview</div>
+        <div class="editorial-card-title">The Musical World Woven by 'Ssap-Independent' baehyuni</div>
+        <div class="editorial-card-desc">
+          I found this artist on my own, reached out, and set up the interview. The goal was to introduce someone doing interesting work in the Korean indie scene before they got wider attention.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=60547" target="_blank">
+        <div class="editorial-card-type">Album Review — Deep Analysis</div>
+        <div class="editorial-card-title">Drifting Away from Here and Now — 2danji, ~</div>
+        <div class="editorial-card-desc">
+          A detailed album review — breaking down the production, lyrics, and overall mood of the album. Focused on what makes it work as a whole, not just individual tracks.
+        </div>
+        <span class="editorial-card-link">Read article →</span>
+      </a>
+
+    </div>
+
+    <!-- DROPDOWN ARCHIVE -->
+    <div class="dropdown-archive">
+
+      <!-- Album Reviews -->
+      <div class="dropdown-item">
+        <div class="dropdown-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="dropdown-header-left">
+            <span class="dropdown-category">Album Reviews</span>
+          </div>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-body">
+          <div class="dropdown-list">
+            <a href="https://www.artinsight.co.kr/news/view.php?no=79517" target="_blank">Kaeto, INTRO — '자유로운 실험이 독창성이 될 때'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=78701" target="_blank">Daniel Caesar, Son of Spergy — '아버지의 아들로 돌아가며'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=77747" target="_blank">Fujii Kaze, Prema — '영어로 부른 숭고한 사랑의 노래'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=76825" target="_blank">Alice Phoebe Lou — '선명한 목소리와 내밀한 고백'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=74948" target="_blank">Chet Baker Re:imagined — '시대를 초월한 과거와 현재의 연결'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=73996" target="_blank">Tom Misch, Six Songs — '새로운 시대의 섬세함'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=73082" target="_blank">Louis Cole, Quality Over Opinion — '관습을 벗어난 독특함의 설득력'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=71260" target="_blank">Milton Nascimento, Minas — '고향 브라질을 향한 서정과 그리움'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=70298" target="_blank">Darin, Serenade — '작게 접은 마음의 모퉁이'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=60014" target="_blank">Cotoba, 4pricøt — '말의 결실'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=58876" target="_blank">The Bowls, Blast From The Past — '낡고 빛나는 시대를 향해'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=55896" target="_blank">eundohee, Unforeseen — '모호함 위에서 부유하기'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=54937" target="_blank">Jade, Hometown — '디아스포라의 따뜻한 향수'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=53004" target="_blank">Moscow Surfing Club, 저공비행 — '양면성과 모순에 대하여'</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=50075" target="_blank">Gong Joong Geu Neul, Love Song — '현실과 환상 사이 길잡이'</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cultural Opinion Columns -->
+      <div class="dropdown-item">
+        <div class="dropdown-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="dropdown-header-left">
+            <span class="dropdown-category">Cultural Opinion Columns</span>
+          </div>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-body">
+          <div class="dropdown-list">
+            <a href="https://www.artinsight.co.kr/news/view.php?no=42873" target="_blank">The Evolution of Listening Humans (듣는 인간의 진화: 체험에서 소유의 음악으로)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=56378" target="_blank">Music and Analog (음악과 아날로그, '그래서 가요 LP')</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=50171" target="_blank">Filmlog x Magic Strawberry Sound (필름로그 x 매직스트로베리사운드의 지속 가능성)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=45471" target="_blank">Was Newtro Really Different from Retro? (뉴트로는 정말 레트로와 달랐을까?)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=43839" target="_blank">Apple TV+, Wavve, and Opening Wallets (Apple TV+, 웨이브의 등장과 열리는 지갑)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=43372" target="_blank">Between Copying and Composing (카피와 작곡 사이)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=42385" target="_blank">Lo-fi Music and the World of Anime (로파이와 아니메)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=43008" target="_blank">Have You Listened to a Playlist? (플레이리스트 들어보셨나요?)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRESS -->
+      <div class="dropdown-item">
+        <div class="dropdown-header" onclick="this.parentElement.classList.toggle('open')">
+          <div class="dropdown-header-left">
+            <span class="dropdown-category">PRESS</span>
+          </div>
+          <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-body">
+          <div class="dropdown-list">
+            <a href="https://www.artinsight.co.kr/news/view.php?no=64083" target="_blank">Summersoul Interview — SWIPE ME RIGHT (재즈로 돌아온 썸머소울)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=60631" target="_blank">Henri Cartier-Bresson Exhibition (결정적 순간을 기다릴 때까지)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=57676" target="_blank">Chagall Special Exhibition (샤갈이 모티프를 구현하는 방식)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=57262" target="_blank">Hip Joseon Pansori (유행을 타고 온 친절한 판소리 안내서)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=51112" target="_blank">돌아온 LP, 새로운 문화 — 레코드284</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=50971" target="_blank">Matisse Exhibition (다채로운 마티스의 작품과 그의 고민)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=50888" target="_blank">Paldo Bobusang (흥의 현재성, '팔도보부상')</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=45505" target="_blank">At Eternity's Gate (우리가 알고 싶어 하는 진짜 고흐)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=43617" target="_blank">2019 Classical Music Concert for Youth (음악을 일상에서 사용하다)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=43179" target="_blank">Hockney Documentary (호크니를 목도한 이들을 위한 영화)</a>
+            <a href="https://www.artinsight.co.kr/news/view.php?no=55715" target="_blank">A Guide for Blue Note Collectors (모으고 또 모으자, 블루노트 컬렉터를 위한 지침)</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- ===== DATA & MARKETING CASES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Data & Marketing Cases</h2>
+      <span class="section-subtitle">Kreators Network, 2022 ~ Present</span>
+    </div>
+
+    <div class="case-grid">
+
+      <!-- CASE 01 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 01 — ARTIST ANALYSIS</div>
+        <div class="case-card-title">K-pop World Tour Streaming Impact Dashboard (Yves)</div>
+        <div class="case-card-desc">
+          Dashboard shows how a world tour changes streaming numbers across 49 markets. Each concert date is compared with streaming data by country, so you can see where the tour actually had an effect. Three views included: tour lift by region, release impact timeline, and geo streaming breakdown. All based on Luminate data.
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+            <div class="case-card-attachment-area">
+              <div class="case-card-attachment-placeholder">Dashboard screenshots and interactive demo will be added here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 02 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 02 — DATA-DRIVEN MARKETING</div>
+        <div class="case-card-title">TikTok Sound Catalog Marketing (Dynamicduo 'AEAO', Epik High)</div>
+        <div class="case-card-desc">
+          Campaign for Dynamicduo's 'AEAO' and Epik High's catalog on TikTok. Each track was split into segments, tested with different content formats, and tracked for engagement. The results helped find the best performing sound clips and optimize ad delivery and influencer seeding in Korea and internationally.
+        </div>
+        <div>
+          <span class="case-metric">
+            <span class="case-metric-value">450K+</span>
+            <span class="case-metric-label">sound-use videos</span>
+          </span>
+          <span class="case-metric">
+            <span class="case-metric-value">₩175 → ₩20K</span>
+            <span class="case-metric-label">UGC cost per video</span>
+          </span>
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+            <div class="case-card-attachment-area">
+              <div class="case-card-attachment-placeholder">Campaign data and results will be added here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 03 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 03 — GLOBAL MARKETING</div>
+        <div class="case-card-title">Billboard Hot 100 Chart Strategy, US Marketing (aespa, BIBI)</div>
+        <div class="case-card-desc">
+          Analyzed the Billboard Hot 100 equivalent score system with Luminate data to understand how many points were needed to chart. Based on that, created a chart entry marketing plan for Korean artists in the US and executed campaigns. After release, compared actual results against the targets.
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+            <div class="case-card-attachment-area">
+              <div class="case-card-attachment-placeholder">Strategy documents and analysis will be added here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 04 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 04 — CROSS-MARKET STRATEGY</div>
+        <div class="case-card-title">J-pop Korea Market Entry Strategy (HANA, AiNA THE END, Novelbright)</div>
+        <div class="case-card-desc">
+          Market analysis for Japanese artists building their activity strategy in Korea. Compared peer artists already active in the market to set benchmarks for streaming volume, concert venue size, and overall position. Each artist received entry strategy with specific performance targets, based on Luminate data.
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+            <div class="case-card-attachment-area">
+              <div class="case-card-attachment-placeholder">Market analysis and benchmarks will be added here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 05 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 05 — LOCAL SCENE ANALYSIS</div>
+        <div class="case-card-title">Korean Indie Artist Catalog & Venue Competitiveness</div>
+        <div class="case-card-desc">
+          Evaluated Korean indie artists' catalog strength through streaming data to estimate their audience draw. Based on those numbers, scored whether their current concert venue size was right and projected what venue tier they could realistically fill. The analysis helped make venue booking decisions based on data instead of guesswork.
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+            <div class="case-card-attachment-area">
+              <div class="case-card-attachment-placeholder">Venue analysis and scoring model will be added here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOOLS & SYSTEMS -->
+    <div class="tools-section">
+      <div class="tools-tags">
+        <span class="tools-tag">Luminate</span>
+        <span class="tools-tag">Tableau</span>
+        <span class="tools-tag">Python</span>
+        <span class="tools-tag">Salesforce MCI</span>
+        <span class="tools-tag">Claude AI</span>
+      </div>
+      <p class="tools-desc">
+        End-to-end data workflow from collection and cleaning to visualization and reporting. Also built a task management application using AI and deployed it to managers and C-level executives for daily operations. Actively using AI tools for data analysis, automation, and insight generation.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== MUSIC TASTE / PLAYLIST ===== -->
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Music Taste</h2>
+      <span class="section-subtitle">Personal Listening</span>
+    </div>
+
+    <div class="playlist-wrapper">
+      <p class="playlist-intro">
+        This is the playlist I listen to most — a personal collection that reflects my everyday musical taste and the sonic palette I naturally gravitate toward.
+        <span class="tbd">[TBD — Genre description and listening context to be added: an overview of the genres, moods, and artistic threads that run through this collection, and what it reveals about my approach to music discovery and curation.]</span>
+      </p>
+
+      <div class="playlist-embed-full">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/13dvwwmStjyWPD40Wzx8jZ?utm_source=generator&theme=0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div>
+        <a class="playlist-link" href="https://open.spotify.com/playlist/13dvwwmStjyWPD40Wzx8jZ?si=194376bb86744434" target="_blank">
+          ▶ Open in Spotify
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <p>
+      Yongjoon Kim — <a href="mailto:camel1410@naver.com">camel1410@naver.com</a> — Seoul, South Korea<br>
+      <span style="color: var(--text-dim);">Portfolio prepared for Spotify Music Editor (South Korea) application, 2026</span>
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
