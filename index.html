@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yongjoon Kim — Portfolio | Spotify Music Editor Application</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=Lora:ital,wght@0,400;1,400;1,500&display=swap');
 
   :root {
     --black: #121212;
@@ -578,7 +578,7 @@
     font-size: 14px;
     color: var(--text-sub);
     line-height: 1.8;
-    max-width: 700px;
+    max-width: 100%;
   }
 
   .playlist-intro .tbd {
@@ -666,6 +666,28 @@
     line-height: 1.8;
   }
 
+  .client-list {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .client-list-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .client-list-names {
+    font-size: 11px;
+    color: var(--text-sub);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     .hero { padding: 60px 24px 40px; }
@@ -685,7 +707,7 @@
     <h1 class="hero-name">Yongjoon Kim</h1>
     <p class="hero-tagline">
       Discovering good music is intuition. Understanding how it reaches people is data.
-      I've been trying to connect them, building a career at the intersection of data, marketing and music journalism.
+      I've been trying to connect them, building a career at the intersection of data, marketing, and music journalism.
     </p>
     <div class="hero-meta">
       <span><span class="dot"></span> Seoul, South Korea</span>
@@ -732,14 +754,18 @@
         <span class="editorial-card-link">Read article →</span>
       </a>
 
-      <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=56110" target="_blank">
+      <div class="editorial-card">
         <div class="editorial-card-type">Genre Editorial</div>
         <div class="editorial-card-title">Rio's Shore at a Café — Bossa Nova</div>
         <div class="editorial-card-desc">
           An editorial about bossa nova — where it came from, why it still works, and what makes a genre like this connect with listeners who normally don't go beyond pop.
         </div>
-        <span class="editorial-card-link">Read article →</span>
-      </a>
+        <a class="editorial-card-link" href="https://www.artinsight.co.kr/news/view.php?no=56110" target="_blank">Read article →</a>
+        <div style="margin-top: 16px; border-radius: 12px; overflow: hidden;">
+          <iframe src="https://open.spotify.com/embed/playlist/2uJTkaXjpjTip5RVA2PrYr?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 12px;"></iframe>
+        </div>
+        <div style="margin-top: 8px; font-size: 11px; color: var(--text-dim);">Companion playlist curated alongside the article</div>
+      </div>
 
       <a class="editorial-card" href="https://www.artinsight.co.kr/news/view.php?no=57612" target="_blank">
         <div class="editorial-card-type">Album Review — Artist Analysis</div>
@@ -860,6 +886,26 @@
       <span class="section-subtitle">Kreators Network, 2022 ~ Present</span>
     </div>
 
+    <div class="perspective-box">
+      <h4>Data & Marketing Background</h4>
+      <p>
+        Streaming analysis, chart scoring, market benchmarking, and predictive modeling using Luminate, Spotify for Artists, Tableau, and Python. Built a Billboard Hot 100 equivalent scoring system, designed an Audience Conversion Ratio model for venue sizing, and created cross-market entry strategies with peer artist comparisons. Also built internal workflow tools with Claude AI and integrated client reporting dashboards through Salesforce MCI.
+      </p>
+      <p style="margin-top: 10px;">
+        On the marketing side, planned and executed digital campaigns across Google, Meta, TikTok, YouTube, Reddit, and Spotify (Marquee, Showcase). Covered the full cycle from pre-save recruitment and influencer seeding to post-campaign performance reporting.
+      </p>
+      <div class="client-list">
+        <div class="client-list-label">K-pop / Girl Groups</div>
+        <div class="client-list-names">aespa, QWER, tripleS, PIXY, EXID, FIFTY FIFTY, BADVILLAIN, cignature, Dreamcatcher, SayMyName, Baby DONT Cry, Kiss of Life, etc.</div>
+        <div class="client-list-label">Korean Artists</div>
+        <div class="client-list-names">Dynamicduo, Silica Gel, Cheeze, Crush, Hwasa, PSY, IM, Paul Kim, Yerin, BIBI, etc.</div>
+        <div class="client-list-label">Boy Groups</div>
+        <div class="client-list-names">OnlyOneOf, CIX, EPEX, WHIB, KINGDOM, TRENDZ, 82MAJOR, EVNNE, TNX, 8TURN, etc.</div>
+        <div class="client-list-label">International / J-pop</div>
+        <div class="client-list-names">YOASOBI, King Gnu, Kanye West, RAYE, Jaydon, Novelbright, AiNA THE END, HANA, etc.</div>
+      </div>
+    </div>
+
     <div class="case-grid">
 
       <!-- CASE 01 -->
@@ -885,7 +931,7 @@
 
             <h4>1. Dynamicduo 'AEAO' — TikTok Sound Campaign</h4>
             <p>
-              TikTok sound campaign targeting Philippines and Thailand (Jul–Aug 2023). Split the track into segments, tested across ad formats, and tracked CPM by country. UGC cost per video dropped from ₩2,000 to ₩175, generating over 450K sound-use videos.
+              TikTok sound campaign targeting the Philippines and Thailand (Jul–Aug 2023). Split the track into segments, tested across ad formats, and tracked CPM by country. UGC cost per video dropped from ₩2,000 to ₩175, generating over 450K sound-use videos.
             </p>
 
             <div class="case-card-attachment-area">
@@ -901,7 +947,7 @@
 
             <h4>2. Epik High — Catalog TikTok Marketing Test</h4>
             <p>
-              Catalog-level TikTok test for Epik High (Sep 2023, Philippines). Selected 14 tracks, created 21 segments, and compared AI Video vs AI Video with Lyrics formats. Measured CPM, Music Disc clicks, and sound usage rates per track to identify top performers: Don't Hate Me, Love Love Love, BORN HATER, End of the World, One.
+              Catalog-level TikTok test for Epik High (Sep 2023, the Philippines). Selected 14 tracks, created 21 segments, and compared AI Video vs AI Video with Lyrics formats. Measured CPM, Music Disc clicks, and sound usage rates per track to identify top performers: Don't Hate Me, Love Love Love, BORN HATER, End of the World, One.
             </p>
 
             <div class="case-card-attachment-area">
@@ -965,9 +1011,9 @@
       <!-- CASE 04 -->
       <div class="case-card">
         <div class="case-card-number">CASE 04 — CROSS-MARKET STRATEGY</div>
-        <div class="case-card-title">J-pop Korea Market Entry Strategy (HANA, AiNA THE END, Novelbright)</div>
+        <div class="case-card-title">J-pop Korea Market Entry Strategy (HANA, King Gnu, Novelbright)</div>
         <div class="case-card-desc">
-          Market analysis for Japanese artists building their activity strategy in Korea. Compared peer artists already active in the market to set benchmarks for streaming volume, concert venue size, and overall position. Each artist received entry strategy with specific performance targets, based on Luminate data.
+          Market analysis for Japanese artists building their activity strategy in Korea. Compared peer artists already active in the market to set benchmarks for streaming volume, concert venue size, and overall position. Delivered market entry strategies with specific performance targets for each artist, based on Luminate data.
         </div>
         <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
         <div class="case-card-detail">
@@ -975,7 +1021,7 @@
 
             <h4>Korea Market Penetration Analysis</h4>
             <p>
-              Grouped Japan-strong artists into 4 tiers (A–D) by their Korea streaming rank and mapped quarterly streaming trends. Used this framework to position HANA's growth trajectory and set realistic entry targets. Also benchmarked peer artists (YOASOBI, Yuuri, Natori, Fujii Kaze, etc.) by KR rank, Top 10K/1K song counts, pre-concert streams, and venue capacity to define each artist's competitive position.
+              Grouped Japan-dominant artists into 4 tiers (A–D) by their Korea streaming rank and mapped quarterly streaming trends. Used this framework to position HANA's growth trajectory and set realistic entry targets. Also benchmarked peer artists (YOASOBI, Yuuri, Natori, Fujii Kaze, etc.) by KR rank, Top 10K/1K song counts, pre-concert streams, and venue capacity to define each artist's competitive position.
             </p>
 
             <div class="case-card-attachment-area">
@@ -1040,21 +1086,47 @@
         </div>
       </div>
 
+      <!-- CASE 06 -->
+      <div class="case-card">
+        <div class="case-card-number">CASE 06 — BI & REPORTING</div>
+        <div class="case-card-title">Integrated Dashboards for Client Reporting & Competitive Intelligence</div>
+        <div class="case-card-desc">
+          Built two core BI systems: an automated client reporting dashboard consolidating 4–5 platform data sources into a single auto-updating view, and a competitive intelligence dashboard covering 500+ artists and 100+ labels for cross-market benchmarking.
+        </div>
+        <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
+        <div class="case-card-detail">
+          <div class="case-card-detail-inner">
+
+            <h4>Automated Client Reporting — MCI Dashboard</h4>
+            <p>
+              Designed and built an integrated reporting dashboard through Salesforce MCI that pulls data from YouTube, Spotify, social platforms, and ad campaign managers into one unified view. Automated daily/weekly updates so clients and internal teams could track YouTube earnings, subscriber growth, campaign cost efficiency (CPM/CPV), and content performance without manual reporting. Reduced reporting turnaround and gave account managers a single source of truth for client-facing updates.
+            </p>
+
+            <div class="case-card-attachment-area">
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/BI_2.png" alt="MCI Automated Reporting Dashboard">
+                <div class="case-card-img-caption">MCI dashboard — YouTube earnings, campaign performance, and daily metrics auto-updated from multiple sources</div>
+              </div>
+            </div>
+
+            <h4>Competitive Intelligence — Tableau Artist Comparison</h4>
+            <p>
+              Built a Tableau dashboard for competitive benchmarking across 500+ artists and 100+ labels. Tracks daily streaming trends, country-level performance breakdowns, market share heatmaps, and post-debut streaming trajectories. Designed to support strategic decisions around market positioning, territory prioritization, and peer artist comparisons — used regularly by the data and strategy teams.
+            </p>
+
+            <div class="case-card-attachment-area">
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/BI_1.png" alt="Tableau Artist Comparison Dashboard">
+                <div class="case-card-img-caption">Tableau competitive dashboard — streaming trends, country performance, market share heatmap, and debut trajectory analysis</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- TOOLS & SYSTEMS -->
-    <div class="tools-section">
-      <div class="tools-tags">
-        <span class="tools-tag">Luminate</span>
-        <span class="tools-tag">Tableau</span>
-        <span class="tools-tag">Python</span>
-        <span class="tools-tag">Salesforce MCI</span>
-        <span class="tools-tag">Claude AI</span>
-      </div>
-      <p class="tools-desc">
-        End-to-end data workflow from collection and cleaning to visualization and reporting. Also built a task management application using AI and deployed it to managers and C-level executives for daily operations. Actively using AI tools for data analysis, automation, and insight generation.
-      </p>
-    </div>
   </div>
 
   <!-- ===== MUSIC TASTE / PLAYLIST ===== -->
@@ -1066,8 +1138,7 @@
 
     <div class="playlist-wrapper">
       <p class="playlist-intro">
-        This is the playlist I listen to most — a personal collection that reflects my everyday musical taste and the sonic palette I naturally gravitate toward.
-        <span class="tbd">[TBD — Genre description and listening context to be added: an overview of the genres, moods, and artistic threads that run through this collection, and what it reveals about my approach to music discovery and curation.]</span>
+        This is the playlist I reach for most — especially on late nights heading home from work. It sits somewhere between jazz, bossa nova, and indie folk, the kind of music that makes a long commute feel like a short film.
       </p>
 
       <div class="playlist-embed-full">
