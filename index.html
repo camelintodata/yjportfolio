@@ -451,20 +451,52 @@
   }
 
   .case-card.open .case-card-detail {
-    max-height: 2000px;
+    max-height: 8000px;
   }
 
   .case-card-detail-inner {
-    padding-top: 16px;
+    padding: 20px;
     margin-top: 16px;
     border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
   }
 
   .case-card-detail-inner p {
     font-size: 13px;
-    color: var(--text-sub);
-    line-height: 1.7;
+    color: #e0e0e0;
+    line-height: 1.8;
     margin-bottom: 12px;
+  }
+
+  .case-card-detail-inner h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green-light);
+    margin-top: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .case-card-detail-inner h4:first-child {
+    margin-top: 0;
+  }
+
+  .detail-metric-row {
+    display: flex;
+    gap: 24px;
+    margin: 12px 0 16px;
+  }
+
+  .detail-metric-item {
+    font-size: 13px;
+    color: #e0e0e0;
+  }
+
+  .detail-metric-item strong {
+    color: #ffffff;
+    font-weight: 600;
   }
 
   .case-card-attachment-area {
@@ -485,8 +517,11 @@
 
   .case-card-img {
     width: 100%;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 6px;
     border: 1px solid var(--border);
+    background: #1a1a1a;
   }
 
   .case-card-img-caption {
@@ -844,29 +879,38 @@
         <div class="case-card-desc">
           Campaign for Dynamicduo's 'AEAO' and Epik High's catalog on TikTok. Each track was split into segments, tested with different content formats, and tracked for engagement. The results helped find the best performing sound clips and optimize ad delivery and influencer seeding in Korea and internationally.
         </div>
-        <div>
-          <span class="case-metric">
-            <span class="case-metric-value">450K+</span>
-            <span class="case-metric-label">sound-use videos</span>
-          </span>
-          <span class="case-metric">
-            <span class="case-metric-value">₩2,000 → ₩175</span>
-            <span class="case-metric-label">UGC cost per video</span>
-          </span>
-        </div>
         <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
         <div class="case-card-detail">
           <div class="case-card-detail-inner">
+
+            <h4>1. Dynamicduo 'AEAO' — TikTok Sound Campaign</h4>
+            <p>
+              TikTok sound campaign targeting Philippines and Thailand (Jul–Aug 2023). Split the track into segments, tested across ad formats, and tracked CPM by country. UGC cost per video dropped from ₩2,000 to ₩175, generating over 450K sound-use videos.
+            </p>
+
             <div class="case-card-attachment-area">
               <div>
                 <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_1.png" alt="AEAO TikTok Campaign Overview">
-                <div class="case-card-img-caption">Campaign performance overview</div>
+                <div class="case-card-img-caption">Campaign overview — target countries, period, budget</div>
               </div>
               <div>
-                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_2.png" alt="AEAO Campaign Results Detail">
-                <div class="case-card-img-caption">Detailed campaign results</div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_2.png" alt="AEAO Campaign CPM and Sound Usage Trends">
+                <div class="case-card-img-caption">CPM trends by country and sound usage cost over time</div>
               </div>
             </div>
+
+            <h4>2. Epik High — Catalog TikTok Marketing Test</h4>
+            <p>
+              Catalog-level TikTok test for Epik High (Sep 2023, Philippines). Selected 14 tracks, created 21 segments, and compared AI Video vs AI Video with Lyrics formats. Measured CPM, Music Disc clicks, and sound usage rates per track to identify top performers: Don't Hate Me, Love Love Love, BORN HATER, End of the World, One.
+            </p>
+
+            <div class="case-card-attachment-area">
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE02_3.png" alt="Epik High Catalog Campaign Overview">
+                <div class="case-card-img-caption">14 tracks × 21 segments, campaign structure</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -881,9 +925,39 @@
         <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
         <div class="case-card-detail">
           <div class="case-card-detail-inner">
+
+            <h4>aespa 'Supernova' — Billboard Hot 100 Entry Strategy</h4>
+            <p>
+              Analyzed the Billboard Hot 100 scoring system by breaking it into 9 activity categories (Premium/Ad-Supported/Programmed Streaming, Airplay, Digital/Physical Sales) with Luminate data. Calculated the score thresholds needed for Rank 1, 50, and 100 based on 72 weeks of chart history. Compared aespa 'Supernova' scores against both the Hot 100 #90 benchmark and K-Pop success cases to identify gaps, especially in Programmed Streaming, Track Sales, and Airplay.
+            </p>
+
             <div class="case-card-attachment-area">
-              <div class="case-card-attachment-placeholder">Strategy documents and analysis will be added here</div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE03_1.png" alt="Billboard Hot 100 Scoring System">
+                <div class="case-card-img-caption">Hot 100 scoring by rank — Rank 1 avg 343K, Rank 50 avg 78K, Rank 100 avg 39K</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE03_2.png" alt="aespa Supernova vs Hot 100 #90 Comparison">
+                <div class="case-card-img-caption">Supernova score vs Hot 100 #90 — category-by-category gap analysis</div>
+              </div>
             </div>
+
+            <h4>BIBI 'EVE:ROMANCE' — US Marketing Campaign</h4>
+            <p>
+              Applied the Billboard scoring framework to plan BIBI's US marketing for the EVE:ROMANCE album. Ran a full-coverage campaign across Reddit (K-pop Category Takeover), X, TikTok Pulse, YouTube, Meta, and Spotify Marquee targeting the US and Mexico. Pre-save fandom recruitment, influencer seeding, and platform-specific conversion campaigns drove a 2x increase in US Spotify streams and 35% growth in Mexico streaming volume.
+            </p>
+
+            <div class="case-card-attachment-area">
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE03_4.png" alt="BIBI US Marketing Campaign Execution">
+                <div class="case-card-img-caption">Full campaign execution — pre-promotion, digital branding, conversion campaigns</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE03_5.png" alt="BIBI Spotify Marquee Results">
+                <div class="case-card-img-caption">Spotify Marquee — US/Mexico/Peru/Chile multi-market targeting</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -898,9 +972,39 @@
         <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
         <div class="case-card-detail">
           <div class="case-card-detail-inner">
+
+            <h4>Korea Market Penetration Analysis</h4>
+            <p>
+              Grouped Japan-strong artists into 4 tiers (A–D) by their Korea streaming rank and mapped quarterly streaming trends. Used this framework to position HANA's growth trajectory and set realistic entry targets. Also benchmarked peer artists (YOASOBI, Yuuri, Natori, Fujii Kaze, etc.) by KR rank, Top 10K/1K song counts, pre-concert streams, and venue capacity to define each artist's competitive position.
+            </p>
+
             <div class="case-card-attachment-area">
-              <div class="case-card-attachment-placeholder">Market analysis and benchmarks will be added here</div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE04_1.png" alt="Korea Market Penetration States">
+                <div class="case-card-img-caption">Market penetration scatter — JP vs KR streams by artist group, HANA trajectory</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE04_2.png" alt="Artist Streaming and Rank Comparison">
+                <div class="case-card-img-caption">Peer artist benchmarks — KR rank, song counts, streams, venue capacity</div>
+              </div>
             </div>
+
+            <h4>Case Study — Focus Track to Catalog Conversion</h4>
+            <p>
+              Analyzed how a viral focus track converts into catalog consumption in Korea using Yonezu Kenshi and King Gnu as case studies. Yonezu's KICK BACK showed 2.5x catalog growth after promotion, while King Gnu's Specialz did not convert — indicating a Korea-targeted breaking campaign was needed for catalog engagement.
+            </p>
+
+            <div class="case-card-attachment-area">
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE04_3.png" alt="Yonezu Kenshi KICK BACK Case">
+                <div class="case-card-img-caption">Best case — Yonezu Kenshi KICK BACK, 2.5x catalog growth post-promotion</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE04_4.png" alt="King Gnu Specialz Case">
+                <div class="case-card-img-caption">Comparison — King Gnu Specialz, no catalog conversion without local campaign</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -915,9 +1019,23 @@
         <span class="case-card-toggle" onclick="this.parentElement.classList.toggle('open')">View details ↓</span>
         <div class="case-card-detail">
           <div class="case-card-detail-inner">
+
+            <h4>Scoring Model — Audience Conversion Ratio (ACR)</h4>
+            <p>
+              Built a scoring model to predict concert venue fit using Luminate streaming data. Defined three signals: Catalog Diversity Score (CDS — how spread out listening is across tracks), Hit Dependency Ratio (HDR — share of catalog in Top 20K), and Top Track Strength (TTS — top track dominance). Combined these into an Audience Conversion Ratio (ACR) to estimate each artist's ticket-selling power relative to their streaming volume.
+            </p>
+
             <div class="case-card-attachment-area">
-              <div class="case-card-attachment-placeholder">Venue analysis and scoring model will be added here</div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE05_1.png" alt="Korean Indie Artist Scoring Model">
+                <div class="case-card-img-caption">ACR scoring model applied to Korean indie artists</div>
+              </div>
+              <div>
+                <img class="case-card-img" src="https://camelintodata.github.io/yjportfolio/images/CASE05_2.png" alt="Venue Competitiveness Analysis">
+                <div class="case-card-img-caption">Venue tier projection based on streaming and catalog metrics</div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
